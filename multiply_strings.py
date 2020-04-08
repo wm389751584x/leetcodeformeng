@@ -1,26 +1,42 @@
+# 43. Multiply Strings
+
 class Solution:
-    def multiply(self, num1, num2):
-        
-        retval = 0
+    def multiply(self, num1: str, num2: str) -> str:
         
         
-        if num1 == '0' or num2 == '0':
-            return '0'
+        if len(num1) == 0 or len(num2) == 0: return '0'
         
-        for i in range(len(num1)-1, -1, -1):
-            carry = 0
-            take = 0
-            passval = 0
-            for j in range(len(num2)-1, -1, -1):
-                value = int(num1[j]) * int(num2[i])
-                value += carry
-                carry = value // 10
-                take = value % 10
-
-                take = (10 ** (len(num1) - j - 1)) * take
-                passval += take
-            retval += (10 ** (len(num1) - i - 1)) * passval
+        # reverse two list
+        num1 = num1[::-1]
+        num2 = num2[::-1]
+        
+        len1 = len(num1)
+        len2 = len(num2)
+        
+        # max length of resume will be len1 + len2
+        # so create a resume of len1 + len2
+        arr = [ 0 for i in range(len1 + len2)]
+        
+        for i in range(len1):
+            for j in range(len2):
+                mul = int(num1[i]) * int(num2[j])
+                poslow = i + j
+                poshigh = i + j + 1
+                mul += arr[poslow]
+                arr[poslow] = mul % 10
+                arr[poshigh] += mul//10
+                
+        res = []
+        
+        for i in range(len(arr)):
+            res.insert(0, str(arr[i]))
             
-        return str(retval)
+        while res[0] == '0' and len(res) > 1:
+            del res[0]
+            
+        return ''.join(res)
+        
 
-print(Solution().multiply('123', '456'))
+if __name__ == "__main__":
+    assert Solution().multiply("120", "20000") == "2400000"
+    assert Solution().multiply("0", "3421") == "0"

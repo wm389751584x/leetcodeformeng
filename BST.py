@@ -71,15 +71,15 @@ class BinaryTree(object):
 
     def cycleHelper(self, node):
         while True:
-            if node.next == None:
+            if node.next is None:
                 return False
             else:
                 p = node.next
-            if p.next == None:
+            if p.next is None:
                 return False
             else:
                 q = p.next
-            if q.next == None:
+            if q.next is None:
                 return False
             else:
                 w = q.next
