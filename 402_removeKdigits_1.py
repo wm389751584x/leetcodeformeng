@@ -5,9 +5,11 @@ class Solution:
             return '0'
 
         stack = []
-
+        
+        # if current digit > next digit, delete it. 
+        # also 
         for n in num:
-            if stack and k and stack[-1] > n:
+            while stack and k and stack[-1] > n:
                 stack.pop()
                 k -= 1
             stack.append(n)
@@ -25,4 +27,5 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().removeKdigits('1432219',3) == '1219'
+    # assert Solution().removeKdigits('1432219',3) == '1219'
+    assert Solution().removeKdigits("1234567890",9) == '0'
