@@ -1,4 +1,4 @@
-# swliding windows
+# sliding windows
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:

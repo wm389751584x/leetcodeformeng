@@ -7,11 +7,13 @@ class Solution:
         for j in range(n):
             ispa[j][j] = True
             for i in range(j):
-                if s[i] == s[j] and (j - i <= 1 or ispa[i-1][j+1]):
+                if s[i] == s[j] and (j - i <= 1 or ispa[i+1][j-1]):
                     ispa[i][j] = True
-                    longest = max(longest, j - i + 1)
-                    left = i
-                    right = j
+                    # longest = max(longest, j - i + 1)
+                    if longest < j - i + 1:
+                        longest = j - i + 1
+                        left = i
+                        right = j
         return s[left:right+1]
 
 Solution().longestPalindrome('aabbaa')

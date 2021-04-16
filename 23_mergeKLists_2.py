@@ -16,15 +16,16 @@ class Solution:
             return lists[0]
         
         curr = head = ListNode(0)
-        temp = self.findMind(lists)
+        temp = self.findMin(lists)
 
         while temp:
             curr.next = temp
             curr = curr.next
+            temp = self.findMid(lists)
         return head.next
 
     
-    def findMind(self, lists):
+    def findMin(self, lists):
         min_val = sys.maxsize
         idx = -1
 

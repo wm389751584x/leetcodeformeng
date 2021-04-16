@@ -15,7 +15,7 @@ class Solution:
         res = lookup[s[-1]]
 
         for i in range(len(s)-2, -1, -1):
-            if lookup[s[i]] > lookup[s[i+1]]:
+            if lookup[s[i]] >= lookup[s[i+1]]:
                 res += lookup[s[i]]
             else:
                 res -= lookup[s[i]]

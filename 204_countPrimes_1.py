@@ -1,14 +1,16 @@
 class Solution:
     def countPrimes(self, n: int) -> int:
-        count = 0
-        for i in range(2, n+1):
-            for j in range(2, i):
-                if i % j == 0:
-                    break
-            else:
-                count += 1
-        return count
+        if n <= 2: return 0
+        prime = [1] * n
+        prime[0] = 0
+        prime[1] = 0
+
+        for i in range(2, n):
+            if prime[i] == 0: continue
+            for j in range(i+i, n, i):
+                prime[j] = 0
+        return sum(prime)
 
 
 if __name__ == "__main__":
-    assert Solution().countPrimes(10) == 4
+    Solution().countPrimes(10) == 4

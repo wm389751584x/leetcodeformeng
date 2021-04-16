@@ -8,6 +8,7 @@ class Solution:
                 if grid[i][j] == '1':
                     self.dfs(grid, i, j)
                     res += 1
+        return res
 
     def dfs(self, grid, i, j):
         m = len(grid)
@@ -22,4 +23,11 @@ class Solution:
 
 
 if __name__ == "__main__":
-    pass
+    grid = [
+  ["1","1","1","1","0"],
+  ["1","1","0","1","0"],
+  ["1","1","0","0","0"],
+  ["0","0","0","0","0"]
+]
+
+assert Solution().numIslands(grid) == 1

@@ -2,6 +2,8 @@ from typing import List
 
 # Definition for singly-linked list.
 # Solution 1: brute force solution
+# get all note values into a que
+# creating new Notes for each value
 class ListNode:
     def __init__(self, x):
         self.val = x

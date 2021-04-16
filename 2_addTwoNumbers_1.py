@@ -40,8 +40,8 @@ class Solution:
                 l1 = l1.next
         
         if carry > 0:
-            nNode = ListNode(1)
-            prev.next = nNode
+            cNode = ListNode(1)
+            prev.next = cNode
         
         return dummy.next
 

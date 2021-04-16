@@ -2,24 +2,30 @@ from typing import List
 
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        if len(nums) == 0: return []
+        n = len(nums)
+        nums.sort()
         res = []
-        lookup = dict()
-        
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                
-                temp = nums[i] + nums[j]
-                temp *= -1
-                
-                if temp in lookup:
-                    l = sorted([nums[i], nums[j], nums[lookup[temp]]])
-                    res.append(l)
-                
-                lookup[nums[j]] = j
-            lookup.clear()
 
+        for k in range(n - 2):
+            if k > 0 and nums[k] == nums[k - 1]:
+                continue
+            i, j = k + 1, n - 1
+            while i < j:
+                _sum = nums[k] + nums[i] + nums[j]
+                if _sum == 0:
+                    res.append([nums[k], nums[i], nums[j]])
+                    i += 1
+                    j -= 1
+                    while i < j and nums[i] == nums[i - 1]:
+                        i += 1
+                    while i < j and nums[j] == nums[j + 1]:
+                        j -= 1
+                elif _sum < 0:
+                    i += 1
+                else:
+                    j -= 1
         return res
+
 
 if __name__ == "__main__":
     s = Solution()

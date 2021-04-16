@@ -9,22 +9,22 @@ class ListNode:
 
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        dummy = ListNode(0)
+        dummy = pre = ListNode(0)
         dummy.next = head
-        pre, p, q = head, head, head
+        slow, fast = head, head
 
         while True:
             while n > 0:
-                q = q.next
+                fast = fast.next
                 n -= 1
-            if q == None:
+            if fast == None:
                 break
             else:
-                pre = p
-                p = p.next
-                q = q.next
-        pre.next = p.next
-        p.next = None
+                pre = slow
+                slow = slow.next
+                fast = fast.next
+        pre.next = slow.next
+        slow.next = None
         return dummy.next
 
 

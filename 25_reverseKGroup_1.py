@@ -6,30 +6,34 @@ class ListNode:
 
 class Solution:
     def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
-
+        # edge case
         if not head: return head
+
+        # setting up pointers
         stack = []
-        dummy = ListNode(0)
-        cur = dummy
+        dummy = cur = ListNode(0)
         dummy.next = head
-        pos = dummy.next
-        
-        while pos != None:
+        pos = cur.next
+
+        while pos:
             for i in range(k):
                 if not pos: break
                 stack.append(pos)
                 pos = pos.next
-                
+            
+            # check if stack element has enough to play
             if len(stack) < k:
                 return dummy.next
             
-            while len(stack) != 0:
+            while stack:
                 cur.next = stack.pop()
                 cur = cur.next
             
+            # connect the main list
             cur.next = pos
-        
+
         return dummy.next
+
 
 
 if __name__ == "__main__":

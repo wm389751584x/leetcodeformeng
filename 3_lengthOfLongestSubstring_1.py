@@ -9,7 +9,7 @@ class Solution:
     
     # check if string contain unique chars
     def isUnique(self, st):
-        check = [False] * 128
+        check = [False] * 128 # 128 full range of ascii table
         for i in range(len(st)):
             val = ord(st[i])
             if check[val]:

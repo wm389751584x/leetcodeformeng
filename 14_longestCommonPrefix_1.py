@@ -5,7 +5,7 @@ class Solution:
 
         for i in range(len(strs[0])):
             for s in strs:
-                if len(s) <= i or strs[0][i] != s[i]:
+                if strs[0][i] != s[i]:
                     return s[:i]
         return strs[0]
 
