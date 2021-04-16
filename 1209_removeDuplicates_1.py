@@ -1,3 +1,5 @@
+import sys
+import traceback
 class Solution:
     # manual 
     def removeDuplicates(self, s: str, k: int) -> str:
@@ -20,4 +22,20 @@ class Solution:
         return res
 
 
-if __name__ == 
+if __name__ == "__main__":
+    s = Solution()
+    try:
+        assert s.removeDuplicates("acbbccc",2) == "b"
+    # many more statements like this
+    except AssertionError:
+        _, _, tb = sys.exc_info()
+        traceback.print_tb(tb) # Fixed format
+        tb_info = traceback.extract_tb(tb)
+        filename, line, func, text = tb_info[-1]
+
+        print('An error occurred on line {} in statement {}'.format(line, text))
+        exit(1)
+
+
+if __name__ == "__main__":
+    pass
