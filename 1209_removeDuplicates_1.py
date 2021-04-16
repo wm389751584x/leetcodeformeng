@@ -36,6 +36,13 @@ if __name__ == "__main__":
         print('An error occurred on line {} in statement {}'.format(line, text))
         exit(1)
 
+try:
+    assert s.removeDuplicates() == 
+except AssertionError:
+    _, _, tb = sys.exc_info()
+    traceback.print_tb(tb) # Fixed format
+    tb_info = traceback.extract_tb(tb)
+    filename, line, func, text = tb_info[-1]
 
-if __name__ == "__main__":
-    pass
+    print('An error occurred on line {} in statement {}'.format(line, text))
+    exit(1)
