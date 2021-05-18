@@ -21,4 +21,4 @@ class Solution:
         return path[-1][-1]
 
 if __name__ == "__main__":
-    assert Solution().uniquePathsWithObstacles([[0,0,0],[0,1,0],[0,0,0]]) == 2
+    assert Solution().uniquePathsWithObstacles([[0,0,0],[0,1,0],[0,0,0]]) == 2w
