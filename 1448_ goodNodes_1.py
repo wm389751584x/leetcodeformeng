@@ -25,7 +25,8 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    root = TreeNode(3)
-    root.left = 
+    root = TreeNode(1)
+    root.left = TreeNode(2)
+    root.right = TreeNode(3)
 
     print(s.goodNodes(root))
