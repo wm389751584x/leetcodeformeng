@@ -29,4 +29,4 @@ if __name__ == "__main__":
     root.left = TreeNode(2)
     root.right = TreeNode(3)
 
-    print(s.goodNodes(root))
+    s.goodNodes(root)

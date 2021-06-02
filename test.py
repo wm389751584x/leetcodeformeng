@@ -1,2 +1,5 @@
-for i in range(1):
-    print(i)
+x = None
+if x: 
+  print('if x')
+if x is not None: 
+  print('if x is not None')
